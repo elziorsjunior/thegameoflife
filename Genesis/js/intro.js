@@ -4,14 +4,9 @@ const ui = document.querySelector('#ui');
 
 const veritas = document.querySelector('#veritas');
 const gameTitle = document.querySelector('#gameTitle');
-const narration = document.querySelector('#narration');
-const genesis = document.querySelector('#genesis');
-const playerPrompt = document.querySelector('#playerPrompt');
-const audio = document.querySelector('#audio');
 
 let vrActive = false;
 
-// VR BUTTON
 vrButton.addEventListener('click', () => {
   if (!vrActive) {
     scene.enterVR();
@@ -26,45 +21,69 @@ vrButton.addEventListener('click', () => {
   }
 });
 
-// INTRO SEQUENCE
-function startIntro() {
-
-  // VERITAS
+function animateVeritas() {
   veritas.setAttribute('visible', true);
+
+  veritas.setAttribute('animation__in_opacity', {
+    property: 'material.opacity',
+    from: 0,
+    to: 1,
+    dur: 2000
+  });
+
+  veritas.setAttribute('animation__in_position', {
+    property: 'position',
+    from: '0 1.6 -6',
+    to: '0 1.6 -4',
+    dur: 2000
+  });
+
+  setTimeout(() => {
+    veritas.setAttribute('animation__out_opacity', {
+      property: 'material.opacity',
+      from: 1,
+      to: 0,
+      dur: 2000
+    });
+  }, 3000);
 
   setTimeout(() => {
     veritas.setAttribute('visible', false);
-    gameTitle.setAttribute('visible', true);
-  }, 3000);
-
-  // THE GAME OF LIFE
-  setTimeout(() => {
-    gameTitle.setAttribute('visible', false);
-    narration.setAttribute('visible', true);
-    narration.setAttribute('text', 'value: NO PRINCÍPIO, EXISTIA APENAS O INOMINÁVEL...');
-    audio.components.sound.playSound();
-  }, 6000);
-
-  // NARRAÇÃO CONTINUA
-  setTimeout(() => {
-    narration.setAttribute(
-      'text',
-      'value: DA VONTADE SURGIU A LUZ. E QUANDO A VIDA DESPERTOU, O JOGO COMEÇOU.'
-    );
-  }, 10000);
-
-  // GENESIS
-  setTimeout(() => {
-    narration.setAttribute('visible', false);
-    genesis.setAttribute('visible', true);
-  }, 15000);
-
-  // IDENTIFICAÇÃO DO JOGADOR
-  setTimeout(() => {
-    genesis.setAttribute('visible', false);
-    playerPrompt.setAttribute('visible', true);
-  }, 18000);
+  }, 5200);
 }
 
-// INICIAR AUTOMATICAMENTE
-window.addEventListener('load', startIntro);
+function animateGameTitle() {
+  gameTitle.setAttribute('visible', true);
+
+  gameTitle.setAttribute('animation__in_opacity', {
+    property: 'material.opacity',
+    from: 0,
+    to: 1,
+    dur: 2500
+  });
+
+  gameTitle.setAttribute('animation__in_position', {
+    property: 'position',
+    from: '0 1.6 -6',
+    to: '0 1.6 -4',
+    dur: 2500
+  });
+
+  setTimeout(() => {
+    gameTitle.setAttribute('animation__out_opacity', {
+      property: 'material.opacity',
+      from: 1,
+      to: 0,
+      dur: 2000
+    });
+  }, 3500);
+
+  setTimeout(() => {
+    gameTitle.setAttribute('visible', false);
+  }, 6000);
+}
+
+window.addEventListener('load', () => {
+  animateVeritas();
+  setTimeout(animateGameTitle, 6000);
+});
