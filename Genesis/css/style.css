@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background: black;
+  font-family: Arial, sans-serif;
+}
+
+#ui {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+#vrButton {
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  border: 1px solid #666;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#vrButton:active {
+  opacity: 0.7;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>The Game of Life — GENESIS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- UI -->
+<div id="ui">
+  <button id="vrButton">Entrar em VR</button>
+</div>
+
+<!-- CENA -->
+<a-scene
+  id="scene"
+  embedded
+  vr-mode-ui="enabled: false"
+  background="color: #000000">
+
+  <!-- Espaço -->
+  <a-sky color="#000000"></a-sky>
+
+  <!-- Luz -->
+  <a-light type="ambient" intensity="0.6"></a-light>
+  <a-light type="point" intensity="1.5" position="0 4 4"></a-light>
+
+  <!-- LOGO VERITAS -->
+  <a-entity id="veritas"
+    position="0 1.6 -4"
+    visible="false"
+    text="value: VERITAS;
+          align: center;
+          color: #FFFFFF;
+          width: 6;">
+  </a-entity>
+
+  <!-- LOGO THE GAME OF LIFE -->
+  <a-entity id="gameTitle"
+    position="0 1.6 -4"
+    visible="false"
+    text="value: THE GAME OF LIFE;
+          align: center;
+          color: #AAAAAA;
+          width: 8;">
+  </a-entity>
+
+  <!-- TEXTO NARRAÇÃO -->
+  <a-entity id="narration"
+    position="0 1.6 -4"
+    visible="false"
+    text="value:;
+          align: center;
+          color: #DDDDDD;
+          width: 9;
+          wrapCount: 40;">
+  </a-entity>
+
+  <!-- LOGO GENESIS -->
+  <a-entity id="genesis"
+    position="0 1.6 -4"
+    visible="false"
+    text="value: GENESIS;
+          align: center;
+          color: #FFFFFF;
+          width: 7;">
+  </a-entity>
+
+  <!-- IDENTIFICAÇÃO DO JOGADOR -->
+  <a-entity id="playerPrompt"
+    position="0 1.4 -4"
+    visible="false"
+    text="value: COMO DEVEMOS CHAMÁ-LO?;
+          align: center;
+          color: #FFFFFF;
+          width: 9;">
+  </a-entity>
+
+  <!-- ÁUDIO -->
+  <a-entity id="audio"
+    sound="src: url(assets/audio/genesis-narration.mp3);
+           autoplay: false;
+           volume: 2;">
+  </a-entity>
+
+  <!-- CÂMERA -->
+  <a-entity camera look-controls position="0 1.6 0"></a-entity>
+
+</a-scene>
+
+<script src="js/intro.js"></script>
+</body>
+</html>
