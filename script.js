@@ -11,8 +11,8 @@ const State = {
   tasks: [],
   projects: [],
   settings: {
-    name: 'Kevin Merico',
-    email: 'kevin@taskflow.app',
+    name: 'Criador',
+    email: 'el333rosa@gmail.com',
     timezone: 'UTC-5 (EST)',
     language: 'English',
     darkMode: true,
